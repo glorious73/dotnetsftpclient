@@ -20,7 +20,7 @@ public class GloriousSftpClient
                 using (var memoryStream = new MemoryStream())
                 {
                     await Task.Run(() => sftp.DownloadFile(remotePath, memoryStream));
-                    sftp.Disconnect(); // May cause a bug
+                    sftp.Disconnect();
                     return (memoryStream.ToArray(), GetContentTypeFromPath(remotePath));
                 }
             }
